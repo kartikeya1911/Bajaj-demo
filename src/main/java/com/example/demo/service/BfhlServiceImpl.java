@@ -16,7 +16,7 @@ public class BfhlServiceImpl implements BfhlService {
     private static final String ROLL_NUMBER = "2310991865";
 
     @Override
-    public ResponseDto processData(RequestDto requestDto) {
+    public ResponseDto process(RequestDto requestDto) {
         List<String> data = requestDto.getData();
 
         List<String> oddNumbers = new ArrayList<>();

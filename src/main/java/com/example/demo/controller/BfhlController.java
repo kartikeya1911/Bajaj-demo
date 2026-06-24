@@ -3,26 +3,18 @@ package com.example.demo.controller;
 import com.example.demo.dto.RequestDto;
 import com.example.demo.dto.ResponseDto;
 import com.example.demo.service.BfhlService;
-import jakarta.validation.Valid;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/bfhl")
 public class BfhlController {
 
-    private final BfhlService bfhlService;
-
-    public BfhlController(BfhlService bfhlService) {
-        this.bfhlService = bfhlService;
-    }
+    @Autowired
+    private BfhlService bfhlService;
 
     @PostMapping
-    public ResponseEntity<ResponseDto> processData(@Valid @RequestBody RequestDto requestDto) {
-        ResponseDto response = bfhlService.processData(requestDto);
-        return ResponseEntity.ok(response);
+    public ResponseDto process(@RequestBody RequestDto request) {
+        return bfhlService.process(request);
     }
 }

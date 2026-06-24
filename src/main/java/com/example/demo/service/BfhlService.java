@@ -4,6 +4,5 @@ import com.example.demo.dto.RequestDto;
 import com.example.demo.dto.ResponseDto;
 
 public interface BfhlService {
-
-    ResponseDto processData(RequestDto requestDto);
+    ResponseDto process(RequestDto request);
 }
