@@ -17,4 +17,9 @@ public class BfhlController {
     public ResponseDto process(@RequestBody RequestDto request) {
         return bfhlService.process(request);
     }
+
+    @GetMapping
+    public java.util.Map<String, Integer> getOperationCode() {
+        return java.util.Map.of("operation_code", 1);
+    }
 }
